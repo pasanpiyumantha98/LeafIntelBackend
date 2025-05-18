@@ -1043,11 +1043,12 @@ app.get('/api/transaction/:id', async(req,res) =>{
 
 
     /// Calculating Payable
-    app.get('/api/supplier/payment/:id', async (req, res) => {
+    app.get('/api/supplier/payment/:id/:year/:month', async (req, res) => {
       try {
-        const currentDate = new Date();
-        let m = currentDate.getMonth(); 
-        let y = currentDate.getFullYear();
+        
+        const SuppId = parseInt(req.params.id);
+        const y = parseInt(req.params.year);
+        const m = parseInt(req.params.month);
 
         let mName="start"
 
@@ -1079,10 +1080,6 @@ app.get('/api/transaction/:id', async(req,res) =>{
           mName = "November";
         }
         
-
-
-    
-        const SuppId = parseInt(req.params.id);
           
         const Supplier = await db.collection('Suppliers').findOne({ Code: SuppId });
     
