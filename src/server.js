@@ -11,7 +11,8 @@ const clientt  = twilio(
  '271f423fe1218461ae83cfd03b805296'
 );
 
-
+const cors = require("cors");
+app.use(cors()); // Allow all origins
 
 
 
