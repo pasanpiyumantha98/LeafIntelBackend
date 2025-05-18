@@ -4,8 +4,7 @@ const uri = "mongodb+srv://pasanpiyumantha98:G30JMklKNHdfum19@cluster0.etw2b.mon
 import multer from "multer";
 import bcrypt from 'bcrypt';
        
-const cors = require("cors");
-app.use(cors()); // Allow all origins
+
 
 import twilio from 'twilio';
 const clientt  = twilio(
