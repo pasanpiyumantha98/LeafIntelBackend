@@ -38,7 +38,7 @@ import cors from 'cors';
 
 // Allow CORS for your frontend
 app.use(cors({
-  origin: 'http://localhost:3000',
+  origin: ["http://localhost:3000", "https://leaf-intel-front-latest.vercel.app"],
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   credentials: true
 }));
