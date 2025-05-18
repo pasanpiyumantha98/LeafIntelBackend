@@ -30,7 +30,17 @@ const db = client.db('LeafIntel');
 
 
 const app= express();
+
+const cors = require('cors');
+// Allow CORS for your frontend
+app.use(cors({
+  origin: 'http://localhost:3000',
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  credentials: true
+}));
+
 app.use(express.json());
+
 
 app.get('/hello',(req,res)=>{
 
