@@ -36,11 +36,17 @@ const app= express();
 app.use(express.json());
 
 const cors = require('cors');
-app.use(cors({
-  origin: 'http://localhost:3000',
-  methods: ['GET', 'POST', 'OPTIONS'],
-  credentials: true
-}));
+app.use(cors());
+app.options('*', cors()); // Enable pre-flight across-the-board
+
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', 'http://localhost:3000'); // OR '*'
+  res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+  res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+  res.header('Access-Control-Allow-Credentials', 'true');
+  next();
+});
+
 
 
 app.get('/hello',(req,res)=>{
