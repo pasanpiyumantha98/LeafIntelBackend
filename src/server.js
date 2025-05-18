@@ -6,6 +6,7 @@ import bcrypt from 'bcrypt';
        
 
 
+
 import twilio from 'twilio';
 const clientt  = twilio(
   'AC2bb1e85e5c0fa7ed6c26890294a74f61',
@@ -33,6 +34,13 @@ const db = client.db('LeafIntel');
 
 const app= express();
 app.use(express.json());
+
+const cors = require('cors');
+app.use(cors({
+  origin: '*', // Or better: 'http://localhost:3000' for development
+  methods: ['GET', 'POST'],
+  credentials: true
+}));
 
 app.get('/hello',(req,res)=>{
 
